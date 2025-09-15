@@ -1,0 +1,8 @@
+@import 'tailwindcss';
+:root{
+    @apply bg-black;
+    @apply text-white;
+    /*@apply **:outline-1;
+    @apply **:outline-green-500;
+    */
+}
