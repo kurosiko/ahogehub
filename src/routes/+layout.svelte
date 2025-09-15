@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';	
-  import { text } from '@sveltejs/kit';
+	
 	let { children } = $props();
 	let show_menu = $state(false);
 	const side_menu = [
@@ -25,12 +25,12 @@
 	<nav class="flex items-center px-6 py-4 size-full">
 		<div class="flex items-center gap-2">
 			<button onclick={()=>show_menu = !show_menu}>
-				<img src="/src/lib/assets/menu.svg" alt="logo" class="w-8 h-8" />
+				<img src="/menu.svg" alt="logo" class="w-8 h-8" />
 			</button>
-			<img src="/src/lib/assets/Logo.svg" alt="logo" class="w-40 h-auto" />
+			<img src="/logo.svg" alt="logo" class="w-40 h-auto" />
 		</div>
 		<div class="flex-grow flex items-center bg-gray-800 rounded-full h-12 px-6 max-w-lg mx-auto">
-			<img src="/src/lib/assets/search.svg" alt="search_logo" class="w-5 h-5" />
+			<img src="/search.svg" alt="search_logo" class="w-5 h-5" />
 				<input
 					type="text"
 					placeholder="Search Ahogehub"
