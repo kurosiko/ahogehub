@@ -1,8 +1,42 @@
 @import 'tailwindcss';
+
+@theme {
+    --animate-spin_rough: spin_rough 2s ease-in-out infinite forwards 0.25s;
+    @keyframes spin_rough {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: rotate(180deg)
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    --animate-fadein: fade 1s ease-in-out forwards;
+    --animate-fadeout: fade 1s ease-in-out forwards reverse;
+    @keyframes fade{
+        0%{
+            opacity: 0;
+        }
+        100&{
+            opacity: 1;
+        }
+    }
+    --animate-border-spin: border_spin 3s linear infinite;
+    @keyframes border_spin {
+        0%{
+            transform: rorate(0)
+        }
+        100%{
+            transform: rotate(360deg)
+        }
+    }
+}
 :root{
     @apply bg-black;
     @apply text-white;
-    /*@apply **:outline-1;
-    @apply **:outline-green-500;
-    */
+
 }

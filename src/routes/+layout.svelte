@@ -1,55 +1,81 @@
 <script lang="ts">
-	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';	
-	
-	let { children } = $props();
-	let show_menu = $state(false);
-	const side_menu = [
-				{text:"Homepage",link:"https://kurosiko.com"},
-				{text:"resource",link:"https://resource.kurosiko.com"},
-				{text:"GitHub",link:"https://github.com/kurosiko"},
-				{text:"Resource",link:"https://resource.kurosiko.com"},
-				{text:"Twitter",link:"https://x.com/kurosiko"},
-				{text:"Explor",link:""},
-				{text:"Upload",link:""},
-				{text:"Analyze",link:""},
-				{text:"Community",link:""},
-			]
+    import "../app.css";
+    import favicon from "$lib/assets/favicon.svg";
+  import { fade, fly, scale, slide } from "svelte/transition";
+  import { quartInOut } from "svelte/easing";
+
+
+    let { children } = $props();
+    let show_menu = $state(false);
+    const side_menu = [
+        { text: "Homepage", link: "https://kurosiko.com" },
+        { text: "Resource", link: "https://resource.kurosiko.com" },
+        { text: "GitHub", link: "https://github.com/kurosiko" },
+        { text: "Resource", link: "https://resource.kurosiko.com" },
+        { text: "Twitter", link: "https://x.com/kurosiko" },
+        { text: "Explore", link: "" },
+        { text: "Upload", link: "" },
+        { text: "Analyze", link: "" },
+        { text: "Community", link: "" },
+    ];
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+    <link rel="icon" href={favicon} />
 </svelte:head>
 
-<header class="w-full bg-gray-950 text-white border-b border-gray-800 z-10">
-	<nav class="flex items-center px-6 py-4 size-full">
-		<div class="flex items-center gap-2">
-			<button onclick={()=>show_menu = !show_menu}>
-				<img src="/menu.svg" alt="logo" class="w-8 h-8" />
-			</button>
-			<img src="/logo.svg" alt="logo" class="w-40 h-auto" />
-		</div>
-		<div class="flex-grow flex items-center bg-gray-800 rounded-full h-12 px-6 max-w-lg mx-auto">
-			<img src="/search.svg" alt="search_logo" class="w-5 h-5" />
-				<input
-					type="text"
-					placeholder="Search Ahogehub"
-					class="flex-1 bg-transparent border-none outline-none text-white ml-3 placeholder-gray-400"
-			/>
-		</div>
-		<div class="text-white font-semibold">
-				Account
-		</div>
-	</nav>
+
+
+
+<header class="w-full py-5 px-10 flex md:flex-row flex-col items-center justify-between bg-gray-950 text-white border-b border-gray-800 z-10 sticky top-0">
+    <div class="flex items-center">
+        <button
+            onclick={() => (show_menu = !show_menu)}
+            class="mr-4"
+        >
+            <img src="/menu.svg" alt="logo" class="w-8 h-8" />
+        </button>
+        <a href="/"><img src="/logo.svg" alt="logo" class="w-40 h-auto" /></a>
+    </div>
+    <div
+        class="grow flex items-center bg-gray-800 rounded-full h-12 px-6 max-w-lg w-full md:w-auto"
+    >
+        <img src="/search.svg" alt="search_logo" class="w-5 h-5" />
+        <input
+            type="text"
+            placeholder="Search Ahogehub"
+            class="bg-transparent border-none outline-none text-white ml-3 placeholder-gray-400 w-full"
+        />
+    </div>
+    <div class="hidden md:flex items-center space-x-4">
+        <a href="/account" class="hover:text-gray-300">Account</a>
+        <a href="#" class="hover:text-gray-300">WIP</a>
+        <a href="#" class="hover:text-gray-300">WIP 2</a>
+    </div>
 </header>
+
 {#if show_menu}
-	<div class="fixed left-0 bg-gray-950 w-75 h-full flex flex-col z-10 *:outline-2 ">
-	{#each side_menu as items}
-		<a class="bg-gray-900 h-20 mx-4 my-1 text-2xl hover:opacity-50 transition-opacity ease-in-out text-center content-center font-bold bg-clip-text text-transparent bg-gradient-to-tl from-pink-100 to-purple-600" href={items.link} target="_blank">{items.text}</a>		
-	{/each}
-	</div>
+    <div
+        transition:fly={{duration:200,easing:quartInOut}}
+        class="fixed bg-black grid md:grid-cols-3 size-full text-center content-center z-100 top-0 overflow-y-scroll"
+    >
+        {#each side_menu as items}
+            <a
+                transition:fade
+                class="bg-gray-900 h-20 mx-4 my-1 text-2xl hover:opacity-50 transition-opacity ease-in-out text-center content-center font-bold bg-clip-text text-transparent bg-gradient-to-tl from-pink-100 to-purple-600"
+                href={items.link}
+                target="_blank">{items.text}</a
+            >
+        {/each}
+    </div>
+    <button onclick={()=>show_menu = false} class="text-center fixed top-5 left-5 z-101 size-20"><img src="/close.svg" alt="close_btn" class="m-auto scale-200 hover:animate-spin_rough hover:opacity-80 transition-opacity"></button>
+    <style>
+        body{
+            overflow:hidden
+        }
+    </style>
 {/if}
 
-<main class="">
-	{@render children?.()}
+<main>
+    {@render children?.()}
 </main>

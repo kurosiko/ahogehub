@@ -2,7 +2,7 @@
     let is_hovered = $state(false);
     let blank = [...new Array(3)].map(()=>undefined)
 </script>
-<div class="text-center">
+<div class="text-center p-2">
     <h1 class="text-4xl">🚧WIP🚧</h1>
     <h2 class="text-2xl">I'm looking forward to seeing you again!</h2>
     <a
