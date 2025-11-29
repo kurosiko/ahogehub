@@ -18,8 +18,9 @@
         </p>
     </section>
     <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <div
+        <a
             class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            href="/explore"
         >
             <Explore />
             <h3 class="text-2xl font-semibold mb-2 text-pink-400">Explore</h3>
@@ -28,9 +29,10 @@
                 <br />
                 Explore our many categories to get started
             </p>
-        </div>
-        <div
+        </a>
+        <a
             class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            href="/upload"
         >
             <Upload />
             <h3 class="text-2xl font-semibold mb-2 text-purple-400">Upload</h3>
@@ -39,7 +41,7 @@
                 <br />
                 It's easy to upload your own photos
             </p>
-        </div>
+        </a>
         <div
             class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
         >

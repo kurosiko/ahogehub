@@ -79,3 +79,46 @@
 <main>
     {@render children?.()}
 </main>
+
+<footer class="w-full ">
+    <nav class="w-full md:flex flex-row *:flex-1 p-5">
+        <div>
+            <h2 class="text-xl font-semibold py-2">Principle of Ahoge</h2>
+            <ul class="text-gray-300">
+                <li><p>Cute!!</p></li>
+                <li><p>Cute!!</p></li>
+                <li><p>Cute!!</p></li>
+                <li><p>Cute!!</p></li>
+                <li><p>Cute!!</p></li>
+                <li><p>Cute!!</p></li>
+            </ul>   
+        </div>
+        <div>
+            <h2 class="text-xl font-semibold py-2">Ahogehub</h2>
+            <ul class=" text-gray-300">
+                <li><a href="/about">About us</a></li>
+                <li><a href="/contact">Contact us</a></li>
+                <li><a href="/recruit">Join us</a></li>
+                <li><a href="/staff">Staff</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-xl font-semibold py-2">Service</h2>
+            <ul class=" text-gray-300">
+                <li><a href="/analyze">Analyze</a></li>
+                <li><a href="/upload">Upload</a></li>
+                <li><a href="/explore">Explore</a></li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-xl font-semibold py-2">Social</h2>
+            <ul class=" text-gray-300">
+                <li><a href="https://github.com/">Github</a></li>
+                <li><a href="https://x.com">Twitter</a></li>
+                <li><a href="https://www.youtube.com">YouTube</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+</footer>
