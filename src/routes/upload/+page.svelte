@@ -58,7 +58,7 @@ let btn_available = $state<boolean>(true);
     <div class="p-10 rounded-md">
         <h1 class="text-3xl font-semibold">Upload</h1>
         <div
-            class="mx-auto flex flex-col justify-center content-center md:w-150 w-100 border-1 border-dashed rounded-md m-5 p-5 hover:bg-gray-600/50"
+            class="mx-auto flex flex-col justify-center content-center md:w-150 border-1 border-dashed rounded-md m-5 p-5 hover:bg-gray-600/50"
             role="button"
             tabindex="0"
             ondrop={drophandler}
@@ -81,7 +81,7 @@ let btn_available = $state<boolean>(true);
             </label>
         </div>
     </div>
-    <div class=" bg-neutral-900 md:w-170 w-100 mx-auto p-5 rounded-md divide-y-1 divide-gray-500 *:p-2.5 content-center">
+    <div class=" bg-neutral-900 md:w-170 w-full mx-auto p-5 rounded-md divide-y-1 divide-gray-500 *:p-2.5 content-center">
         {#if selectFile.length != 0}
         <button 
             class="font-semibold text-xl rounded-md m-2.5 outline-1 outline-purple-400 hover:scale-110 hover:outline-transparent from-indigo-500 to-pink-500 hover:bg-gradient-to-r w-50 transition-all ease-in-out duration-300 active:scale-100"

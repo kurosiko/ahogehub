@@ -30,7 +30,7 @@
 
 
 <h1 class="text-center text-4xl top-0 z-500 py-5 font-semibold">Explore</h1>
-<div class="relative">
+<div>
     <div class="md:flex flex-row gap-5 p-5 transition-all">
       <div class="md:flex flex-1 hidden">
           <div class="w-full flex">
@@ -41,7 +41,7 @@
             </div>
           </div>
       </div>   
-      <div class="md:flex-5 grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+      <div class="md:flex-5 grid md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] grid-cols-2">
       {#await api_request()}
         <h1>Loading!</h1>
       {:then res} 
@@ -55,23 +55,34 @@
       {/await}
       </div>
       {#if sidebar_opened}
-      <div class="md:flex-2 sticky top-0 left-0 text-cente w-full" transition:fly|global={{duration:500,x:500,easing:cubicInOut}}>
+      <div class="md:flex-2 fixed md:sticky top-0 left-0 text-cente w-full bg-black md:h-auto h-screen md:z-0 z-100 p-5" transition:fly|global={{duration:500,x:500,easing:cubicInOut}}>
         <img
           src={selected_item.image} alt={selected_item.description + "is loading"}
           class="w-full"
         >
-        <div class="flex flex-col gap-2.5 py-2.5 ">
-          <p class="text-lg">Source:</p>
-          <p>{selected_item.source}</p>
-          <p class="text-lg">Creator</p>
-          <p>{"ahoge lover"}</p>
-          <p class="text-lg">Link:</p>
-          <p><a href={selected_item.image} class="underline hover:text-white/50">{selected_item.image}</a></p>
-          <p class="text-lg">Description:</p>
-          <p>{selected_item.description}</p>
-          <p class="text-lg">Uploader:</p>
-          <p>{"ahoge lover"}</p>
-          <button onclick={()=>{sidebar_opened = false}} class="text-center mx-auto text-lg font-base">close</button>
+        <div class="flex flex-col gap-2.5 py-2.5">
+          <div class="space-y-4">
+            <div>
+              <p class="text-sm font-semibold text-gray-400 uppercase">Source</p>
+              <p class="text-gray-200">{selected_item.source}</p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-400 uppercase">Description</p>
+              <p class="text-gray-200">{selected_item.description}</p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-gray-400 uppercase">Image Link</p>
+              <a href={selected_item.image} class="text-blue-400 underline hover:text-blue-300 break-all text-sm">
+                {selected_item.image}
+              </a>
+            </div>
+            <button 
+              onclick={() => sidebar_opened = false}
+              class="w-full mt-4 px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded transition-colors font-medium"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
       {/if}

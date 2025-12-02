@@ -4,7 +4,7 @@
     import Upload from "$lib/assets/Upload.svelte";
 </script>
 
-<div class="text-center h-screen *:px-5">
+<div class="text-center *:px-5">
     <section class="mx-auto">
         <h1
             class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-600 p-5"
@@ -12,7 +12,7 @@
             AhogeHub
         </h1>
         <p class="text-xl text-gray-400 mb-12 mx-auto">
-            For every lover by ahoge lover
+            For every ahoge lover by ahoge lover
             <br />
             Let's explor new style
         </p>
@@ -42,8 +42,9 @@
                 It's easy to upload your own photos
             </p>
         </a>
-        <div
+        <a
             class="bg-gray-800 p-8 rounded-xl shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+            href="/account/like"
         >
             <Favorite />
             <h3 class="text-2xl font-semibold mb-2 text-teal-400">Connect</h3>
@@ -52,7 +53,7 @@
                 <br />
                 Leave likes and comments to share your thoughts
             </p>
-        </div>
+        </a>
     </section>
     <section class="bg-gray-800 py-12 mx-5 rounded-xl shadow-lg">
         <h2 class="text-4xl font-bold mb-4 text-pink-400">

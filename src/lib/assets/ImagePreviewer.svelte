@@ -1,7 +1,7 @@
 <script lang="ts">
     const {src,onclick} = $props()
 </script>
-<div class="size-50 hover:scale-110 transition-all ease-in-out group relative hover:z-1 hover:bg-neutral-700">
+<div class="md:size-50 hover:scale-110 transition-all ease-in-out group relative hover:z-1 hover:bg-neutral-700">
     <img
         src={src} alt="ahoge"
         class="size-full group-hover:brightness-30 object-center object-contain"

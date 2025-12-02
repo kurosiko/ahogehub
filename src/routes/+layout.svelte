@@ -80,7 +80,7 @@
     {@render children?.()}
 </main>
 
-<footer class="w-full ">
+<footer class="w-full">
     <nav class="w-full md:flex flex-row *:flex-1 p-5">
         <div>
             <h2 class="text-xl font-semibold py-2">Principle of Ahoge</h2>
