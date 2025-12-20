@@ -3,6 +3,8 @@
     import favicon from "$lib/assets/favicon.svg";
   import { fade, fly, scale, slide } from "svelte/transition";
   import { quartInOut } from "svelte/easing";
+  import { authUser, is_logged_in, user_default_value, type User } from "$lib/authStore";
+  
 
 
     let { children } = $props();
@@ -18,6 +20,15 @@
         { text: "Analyze", link: "" },
         { text: "Community", link: "" },
     ];
+    let is_logged:boolean = $state(false)
+    is_logged_in.subscribe((value) => {
+        is_logged = value;
+    });
+    let userdata:User = $state(user_default_value)
+    authUser.subscribe((value) => {
+        userdata = value;
+    });
+
 </script>
 
 <svelte:head>
@@ -47,11 +58,17 @@
             class="bg-transparent border-none outline-none text-white ml-3 placeholder-gray-400 w-full"
         />
     </div>
-    <div class="hidden md:flex items-center space-x-4">
-        <a href="/account" class="hover:text-gray-300">Account</a>
-        <a href="#" class="hover:text-gray-300">WIP</a>
-        <a href="#" class="hover:text-gray-300">WIP 2</a>
-    </div>
+        <div class="hidden md:flex items-center space-x-4">
+            {#if is_logged}
+                    <p>{userdata.username}</p>
+                {:else}
+                    <a href="/account" class="hover:text-gray-300">Account</a>
+                    <a href="#" class="hover:text-gray-300">WIP</a>
+                    <a href="#" class="hover:text-gray-300">WIP 2</a>
+            {/if}
+            
+        </div>
+    
 </header>
 
 {#if show_menu}
@@ -75,6 +92,7 @@
         }
     </style>
 {/if}
+
 
 <main>
     {@render children?.()}

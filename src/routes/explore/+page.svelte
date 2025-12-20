@@ -29,8 +29,8 @@
 </script>
 
 
-<h1 class="text-center text-4xl top-0 z-500 py-5 font-semibold">Explore</h1>
-<div>
+<h1 class="text-center text-4xl py-5 font-semibold">Explore</h1>
+<div class="">
     <div class="md:flex flex-row gap-5 p-5 transition-all">
       <div class="md:flex flex-1 hidden">
           <div class="w-full flex">
@@ -55,7 +55,7 @@
       {/await}
       </div>
       {#if sidebar_opened}
-      <div class="md:flex-2 fixed md:sticky top-0 left-0 text-cente w-full bg-black md:h-auto h-screen md:z-0 z-100 p-5" transition:fly|global={{duration:500,x:500,easing:cubicInOut}}>
+      <div class="md:flex-2 fixed md:sticky top-0 left-0 text-cente w-full bg-black md:h-auto h-screen md:z-0 z-100 md:p-0 p-5" transition:fly|global={{duration:500,x:500,easing:cubicInOut}}>
         <img
           src={selected_item.image} alt={selected_item.description + "is loading"}
           class="w-full"
@@ -86,5 +86,8 @@
         </div>
       </div>
       {/if}
+      <div class="z-100 sticky top-0">
+        <h1>test</h1>
+      </div>
   </div>
 </div>
