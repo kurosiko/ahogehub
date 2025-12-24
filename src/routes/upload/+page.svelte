@@ -30,7 +30,7 @@ const uploader = ()=>{
     const formdata = new FormData();
     formdata.append("file",item.file)
     const xhr = new XMLHttpRequest();
-    xhr.open("POST","https://api.kurosiko.com/upload");
+    xhr.open("POST","https://api.ahogehub.org/upload");
     xhr.upload.onprogress = (event)=>{
         if(event.lengthComputable){
             const loaded = event.loaded;

@@ -19,8 +19,9 @@
     }
     let files = $state([])
     const api_request = async ()=>{
-      const response = await fetch("https://api.kurosiko.com/get",{
+      const response = await fetch("https://api.ahogehub.org/item",{
         method:"GET",
+        mode:"cors"
       });
       if (response.status != 200) return
       const body:{files:string[]} = await response.json()
