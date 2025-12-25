@@ -20,7 +20,8 @@ export const actions: Actions = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }),
+            mode:"cors"
         });
         if (!res.ok) {
             return fail(res.status, { message: 'Login failed', incorrect: true });
@@ -52,7 +53,8 @@ export const actions: Actions = {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ username, password })
+            body: JSON.stringify({ username, password }),
+            mode:"cors"
         });
         if (!res.ok) {
             return fail(res.status, { message: 'Signup failed' });

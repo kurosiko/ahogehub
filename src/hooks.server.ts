@@ -22,7 +22,8 @@ export const handle: Handle = async ({ event, resolve }) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ session_token })
+            body: JSON.stringify({ session_token }),
+            mode:"cors"
         });
         if (session_login_response.ok) {
             const session_login_json = await session_login_response.json() as SessionLogin;
@@ -39,7 +40,8 @@ export const handle: Handle = async ({ event, resolve }) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ refresh_token })
+            body: JSON.stringify({ refresh_token }),
+            mode:"cors"
         });
         if (refresh_login_response.ok) {
             const refresh_login_json = await refresh_login_response.json() as RefreshLogin;
