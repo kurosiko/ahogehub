@@ -3,6 +3,7 @@
     import { fade } from "svelte/transition";
     import { enhance } from "$app/forms";
     import type { ActionData } from "./$types";
+    import { goto } from "$app/navigation";
     let { form }: { form: ActionData } = $props();
     let is_signup = $state(true);
     let pass_hidden = $state(true);
@@ -15,6 +16,8 @@
     $effect(() => {
         if (form?.success && form?.user) {
             login_store(form.user.user_id, form.user.username);
+            
+            goto("/")
         }
     });
 </script>
@@ -78,6 +81,9 @@
         </div>
         {#if form?.message}
             <p class="text-red-500">{form.message}</p>
+        {/if}
+        {#if form?.success}
+            <p class="text-green-400">Success!</p>
         {/if}
         <button
             class="text-2xl outline-2 outline-white/50 hover:outline-white duration-500 py-2 px-10 rounded-full bg-clip-text bg-linear-to-bl text-transparent from-pink-400 to-purple-600"
